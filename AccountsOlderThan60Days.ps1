@@ -1,0 +1,1 @@
+Get-aduser -filter * -Properties “LastLogonDate” | where {$_.LastLogonDate -le (get-date).AddDays(-60)} | sort-object -Property lastlogondate -desc |format-table -Property name, lastlogondate -AutoSize
